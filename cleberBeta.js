@@ -8,8 +8,9 @@ bot.on('/status', msg => {
         
         var saida = JSON.parse(this.responseText);
         if(saida.offline == null) {
-            let text = "✅ Server Online | "+saida.players.online+"/"+saida.players.max+" ✅"+
-            "\nOnline: "+saida.players.list;
+            let text = "✅ Server Online | "+saida.players.online+"/"+saida.players.max+" ✅";
+            if(saida.players.online!=0)
+                text=text+("\nOnline: "+saida.players.list);
             return bot.sendMessage(msg.chat.id,text);
             
         }
