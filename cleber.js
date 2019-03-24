@@ -29,8 +29,33 @@ bot.on('/status', msg => {
         return bot.sendMessage(msg.chat.id, "😢 SERVER OFFLINE 😢");
     });
 });
+// setInterval(function () { console.log("oi")},10000)
+bot.on('/start', msg => {
+    console("notificacao ativado no chat:"+msg.chat.nome)
+    setInterval(function () {
+        //console.log("intervalo")
+        jsonRequest(function () {
+            var online = true;
+            var saida = JSON.parse(this.responseText);
+            if (saida.offline != null && online) {
+                console.error("Server caiu!!!")
+                return bot.sendMessage(msg.chat.id, "🆘 @JoaoPelizza Server caiu 🆘");
+                online = false;
+            }else if(!online){
+                online = true;
+                
+            }
+            console.log("Server on")
+        })
+    }, 120000);
+})
 
-    
+// setInterval(bot.on(
+//     msg=>{
+//         console.log("test")
+//     }
+// ),1000);
+
 
 bot.connect();
 
