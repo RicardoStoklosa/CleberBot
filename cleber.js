@@ -1,30 +1,36 @@
 const Telebot = require("telebot");
-const bot = new Telebot('891760896:AAH4OFP5Shfr9XPShDkZASPJ0n3OjHppeDA');
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var express = require('express');
 var app = express();
 
+//release
+// const bot = new Telebot('891760896:AAH4OFP5Shfr9XPShDkZASPJ0n3OjHppeDA');
+//test
+const bot = new Telebot('859246984:AAGJqxaI6-lq5JX_4iL84G9ihUm181IQe1o');
+
+
 var port = process.env.PORT || 8080;
 
-app.listen(port, function() {
-    console.log("bo mama");
+app.listen(port, function () {
 });
 
 bot.on('/status', msg => {
     console.log("Request Status Servidor")
-    jsonRequest(function(){
+    jsonRequest(function () {
 
         var saida = JSON.parse(this.responseText);
-        if(saida.offline == null) {
-            let text = "✅ Server Online | "+saida.players.online+"/"+saida.players.max+" ✅";
-            if(saida.players.online!=0)
-                text=text+("\nOnline: "+saida.players.list);
-            return bot.sendMessage(msg.chat.id,text);
+        if (saida.offline == null) {
+            let text = "✅ Server Online | " + saida.players.online + "/" + saida.players.max + " ✅";
+            if (saida.players.online != 0)
+                text = text + ("\nOnline: " + saida.players.list);
+            return bot.sendMessage(msg.chat.id, text);
 
         }
-        return bot.sendMessage(msg.chat.id,"😢 SERVER OFFLINE 😢");
+        return bot.sendMessage(msg.chat.id, "😢 SERVER OFFLINE 😢");
     });
 });
+
+    
 
 bot.connect();
 
@@ -32,7 +38,7 @@ function jsonRequest(callback) {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
 
-        console.log("Status["+xhr.status+"] ReadyState["+xhr.readyState+"]")
+        console.log("Status[" + xhr.status + "] ReadyState[" + xhr.readyState + "]")
         if (xhr.status === 200 && this.readyState === 4) {
 
             if (typeof callback === "function") {
