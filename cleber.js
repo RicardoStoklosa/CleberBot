@@ -32,17 +32,19 @@ bot.on('/status', msg => {
 // setInterval(function () { console.log("oi")},10000)
 bot.on('/start', msg => {
     setInterval(function () {
-        console.log("intervalo")
+        //console.log("intervalo")
         jsonRequest(function () {
             var online = true;
             var saida = JSON.parse(this.responseText);
             if (saida.offline != null && online) {
-                return bot.sendMessage(msg.chat.id, "😢 SERVER OFFLINE 😢");
+                console.error("Server caiu!!!")
+                return bot.sendMessage(msg.chat.id, "🆘 @JoaoPelizza Server caiu 🆘");
                 online = false;
             }else if(!online){
                 online = true;
-                return bot.sendMessage(msg.chat.id, "😢 SERVER OFFLINE 😢");
+                
             }
+            console.log("Server on")
         })
     }, 60000);
 })
