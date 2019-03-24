@@ -39,12 +39,12 @@ bot.on('/start', msg => {
             if (saida.offline != null && online) {
                 return bot.sendMessage(msg.chat.id, "😢 SERVER OFFLINE 😢");
                 online = false;
-            }else if(online){
+            }else if(!online){
                 online = true;
                 return bot.sendMessage(msg.chat.id, "😢 SERVER OFFLINE 😢");
             }
         })
-    }, 20000);
+    }, 60000);
 })
 
 // setInterval(bot.on(
