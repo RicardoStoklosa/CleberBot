@@ -31,7 +31,7 @@ bot.on('/status', msg => {
 });
 // setInterval(function () { console.log("oi")},10000)
 bot.on('/start', msg => {
-    console("notificacao ativado no chat:"+msg.chat.nome)
+    //console("notificacao ativado no chat:"+msg.chat.nome)
     setInterval(function () {
         //console.log("intervalo")
         jsonRequest(function () {
