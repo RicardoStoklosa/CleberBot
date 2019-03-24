@@ -1,3 +1,3 @@
 "scripts": {
-    "start": "node cleber.js",
+    "start": "node cleber.js"
 }
