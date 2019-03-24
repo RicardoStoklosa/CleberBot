@@ -1,7 +1,11 @@
 {
+    "name": "cleber-bot",
+    "version": "0.1.0",
+    "description": "no",
+    "main": "cleber.js",
+
     "scripts" : {
-        "start": "node cleber.js",
-        "build": "webpack"
+        "start": "node cleber.js"
     },
 
     "dependencies": {
