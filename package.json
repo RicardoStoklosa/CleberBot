@@ -1,17 +1,27 @@
 {
-    "name": "cleber-bot",
-    "version": "0.1.0",
-    "description": "no",
-    "main": "cleber.js",
-
-    "scripts" : {
-        "start": "node cleber.js"
-    },
-
-    "dependencies": {
-        "telebot": "^1.2.6",
-        "jquery": "^3.3.1",
-        "xmlhttprequest": "^1.8.0"
-    }
-
+  "name": "cleber-bot",
+  "version": "0.1.0",
+  "description": "no",
+  "main": "cleber.js",
+  "scripts": {
+    "start": "node cleber.js"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "jquery": "^3.3.1",
+    "telebot": "^1.2.6",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RicardoStoklosa/CleberBot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RicardoStoklosa/CleberBot/issues"
+  },
+  "homepage": "https://github.com/RicardoStoklosa/CleberBot#readme"
 }
