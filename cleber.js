@@ -31,16 +31,18 @@ bot.on('/status', msg => {
 });
 // setInterval(function () { console.log("oi")},10000)
 bot.on('/start', msg => {
-    //console("notificacao ativado no chat:"+msg.chat.nome)
+    var online = true;
+    console.log("notificacao ativado no chat:"+msg.chat.username)
     setInterval(function () {
         //console.log("intervalo")
         jsonRequest(function () {
-            var online = true;
+            
             var saida = JSON.parse(this.responseText);
             if (saida.offline != null && online) {
                 console.error("Server caiu!!!")
-                return bot.sendMessage(msg.chat.id, "🆘 @JoaoPelizza Server caiu 🆘");
                 online = false;
+                return bot.sendMessage(msg.chat.id, "🆘 @JoaoPelizza Server caiu 🆘");
+                
             }else if(!online){
                 online = true;
                 
@@ -50,11 +52,7 @@ bot.on('/start', msg => {
     }, 120000);
 })
 
-// setInterval(bot.on(
-//     msg=>{
-//         console.log("test")
-//     }
-// ),1000);
+
 
 
 bot.connect();
