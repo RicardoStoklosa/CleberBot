@@ -29,8 +29,30 @@ bot.on('/status', msg => {
         return bot.sendMessage(msg.chat.id, "😢 SERVER OFFLINE 😢");
     });
 });
+// setInterval(function () { console.log("oi")},10000)
+bot.on('/start', msg => {
+    setInterval(function () {
+        console.log("intervalo")
+        jsonRequest(function () {
+            var online = true;
+            var saida = JSON.parse(this.responseText);
+            if (saida.offline != null && online) {
+                return bot.sendMessage(msg.chat.id, "😢 SERVER OFFLINE 😢");
+                online = false;
+            }else if(online){
+                online = true;
+                return bot.sendMessage(msg.chat.id, "😢 SERVER OFFLINE 😢");
+            }
+        })
+    }, 20000);
+})
 
-    
+// setInterval(bot.on(
+//     msg=>{
+//         console.log("test")
+//     }
+// ),1000);
+
 
 bot.connect();
 
