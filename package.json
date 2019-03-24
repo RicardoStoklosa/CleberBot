@@ -7,7 +7,7 @@
 
     "dependencies": {
     "telebot": "^1.2.6",
-    "xmlhttprequest": "^1.0.2",
+    "xmlhttprequest": "^1.0.2"
   }
 
 }
