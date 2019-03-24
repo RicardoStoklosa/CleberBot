@@ -2,6 +2,14 @@ const Telebot = require("telebot");
 const bot = new Telebot('891760896:AAH4OFP5Shfr9XPShDkZASPJ0n3OjHppeDA');
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
+var app = express();
+
+var port = process.env.port || 8080;
+
+app.listen(port, function() {
+    console.log("bo mama");
+});
+
 bot.on('/status', msg => {
     console.log("Request Status Servidor")
     jsonRequest(function(){
