@@ -4,9 +4,9 @@ var express = require('express');
 var app = express();
 var notificacao = [];
 //release
-// const bot = new Telebot('891760896:AAH4OFP5Shfr9XPShDkZASPJ0n3OjHppeDA');
+const bot = new Telebot('891760896:AAH4OFP5Shfr9XPShDkZASPJ0n3OjHppeDA');
 //test
-const bot = new Telebot('859246984:AAGJqxaI6-lq5JX_4iL84G9ihUm181IQe1o');
+// const bot = new Telebot('859246984:AAGJqxaI6-lq5JX_4iL84G9ihUm181IQe1o');
 
 
 var port = process.env.PORT || 8080;
